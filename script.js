@@ -1,5 +1,12 @@
 let legendItem = document.querySelectorAll('.legend__item');
 let unitsList = document.querySelectorAll('.unit');
+let input = document.querySelector('#editor__input');
+let text = document.querySelector('text');
+let btn = document.querySelector('#btn');
+let tbody = document.querySelector('#tbody');
+let delet = document.querySelector('.delete');
+let td = document.querySelector('td');
+let tr = document.querySelector('tr');
 
 legendItem.forEach(function (item, index) {
     item.addEventListener('mouseover', function () {
@@ -11,21 +18,28 @@ legendItem.forEach(function (item, index) {
     });
 });
 
-let purchase = {};
-let form = {};
+btn.addEventListener('click', function (event) {
+    event.preventDefault();
+    let tr = document.createElement('tr');
+    tr.classList.add('table__row3');
+    tbody.append(tr);
 
-purchase.name = form.name.value;
-purchase.price = form.price.value;
-purchase.category = form.selectCategory.options[form.selectCategory.selectedIndex].innerText;
+    let td = document.createElement('td');
+    td.classList.add('name3');
+    tr.append(td);
+    td.textContent = input.value;
 
-tbody.insertAdjacentHTML('beforeEnd',
-        `
-            <tr class="table__row2" data-category="product"
-                <td class="name2">${purchase.name}</td>
-                <td class="category2">${purchase.category}</td>
-                <td class="price2">${purchase.price}</td>
-                <td class="delete"><i class="purchases__item-del fa-solid fa-xmark></i></td>
-            </tr>
-        `
+    let td2 = document.createElement('td');
+    td.classList.add('category3');
+    tr.append(td);
+    td.textContent = input.value;
 
-)
+    let td3 = document.createElement('td');
+    td.classList.add('price3');
+    tr.append(td);
+    td.textContent = input.value;
+})
+
+delet.addEventListener('click', function(){
+    tbody.remove();
+})
