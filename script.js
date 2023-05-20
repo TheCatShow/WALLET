@@ -40,6 +40,6 @@ btn.addEventListener('click', function (event) {
     td.textContent = input.value;
 })
 
-delet.addEventListener('click', function(){
-    tbody.remove();
+tbody.addEventListener('click', function (event) {
+    event.target.closest('tr').remove();
 })
